@@ -14,6 +14,11 @@ Class DiversityFacultyProfiles {
 
   private static $instance = null;
 
+  public static function instance() {
+    if( isset( self::$instance) ) return self::$instance;
+
+    return self::$instance = new DiversityFacultyProfiles();
+  }
 
 } // End DiversityFacultyProfiles class
 
