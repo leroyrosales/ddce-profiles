@@ -21,7 +21,7 @@ Class DiversityFacultyDirectory {
   }
 
   public static function instance() {
-    if( isset( self::$instance) ) return self::$instance;
+    self::$instance ?? self::$instance;
 
     return self::$instance = new DiversityFacultyDirectory();
   }
@@ -32,7 +32,6 @@ Class DiversityFacultyDirectory {
 
     $this->register_profiles_cpt();
 
-    register_deactivation_hook( __FILE__, [$this, 'deactivate'] );
   }
 
   // Register Faculty Profiles post type
