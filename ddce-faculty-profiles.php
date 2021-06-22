@@ -20,6 +20,7 @@ Class DiversityFacultyDirectory {
     define( 'DIVERSITYPROFILES_ACF_URL', plugin_dir_url( __FILE__ ) . 'includes/acf/' );
 
     add_action( 'init', [$this, 'initialize'], 0, 0 );
+    add_shortcode( 'faculty_profile', [$this, 'registers_faculty_shortcode'] );
 
   }
 
@@ -57,7 +58,29 @@ Class DiversityFacultyDirectory {
         'thumbnail',
       ],
     ]);
+  }
 
+  // Add Shortcode
+  public function registers_faculty_shortcode( $atts ) {
+    ob_start();
+
+    // Attributes
+    $atts = shortcode_atts(
+      array(
+        'slug' => '',
+      ),
+      $atts,
+      'faculty_profile'
+    );
+
+    $profile = get_posts([
+      'name' => sanitize_text_field($atts['slug']),
+      'post_type' => 'ddce-faculty-profile'
+    ]);
+
+    return '<div class="ddce-faculty-profile-container"><div class="ddce-faculty-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3>' . $profile[0]->post_title . '</h3><h4>' . get_post_meta($profile[0]->ID, 'role', true) .'</h4></div>';
+
+    return ob_get_clean();
   }
 
 } // End DiversityFacultyDirectory class
