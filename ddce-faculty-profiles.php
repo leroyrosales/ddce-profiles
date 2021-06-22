@@ -49,7 +49,7 @@ Class DiversityFacultyDirectory {
       'public' => true,
       'has_archive' => false,
       'menu_icon' => 'dashicons-businessperson',
-      'publicly_queryable' => true,
+      'publicly_queryable' => false,
       'rewrite' => true,
       'show_ui' => true,
       'supports' => [
