@@ -86,13 +86,13 @@ Class DiversityFacultyDirectory {
       'post_type' => 'ddce-faculty-profile'
     ]);
 
-    return '<div class="ddce-faculty-profile-container" data-anchor="'. $profile[0]->ID .'"><div class="ddce-faculty-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3 class="ddce-faculty-profile-name">' . $profile[0]->post_title . '</h3><h4 class="ddce-faculty-profile-role">' . get_post_meta($profile[0]->ID, 'role', true) .'</h4></div>';
+    return '<div class="ddce-faculty-profile-container"><div class="ddce-faculty-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3 class="ddce-faculty-profile-name">' . $profile[0]->post_title . '</h3><h4 class="ddce-faculty-profile-role">' . get_post_meta($profile[0]->ID, 'role', true) . '</h4><div class="ddce-faculty-profile-background">' . get_post_meta($profile[0]->ID, 'background', true) . '</div></div>';
 
     return ob_get_clean();
   }
 
   public static function adds_modal_to_footer(){
-    echo '<div id="facultyInfoModal" aria-hidden="true" tabindex="-1" role="dialog"><article class="modal-info"><button type="button" class="close rounded-circle" aria-label="Close" data-dismiss="modal">X<span aria-hidden="true" class="sr-only">Close Modal</span></button><h1 class="modal-profile-name"></h1><h2 class="modal-profile-role"></h2><hr/><div class="faculty-background"></div></article></div>';
+    echo '<div id="facultyInfoModal" aria-hidden="true" tabindex="-1" role="dialog"><article class="modal-info"><button type="button" class="close rounded-circle" aria-label="Close" data-dismiss="modal">X<span aria-hidden="true" class="sr-only">Close Modal</span></button><h1 class="modal-profile-name"></h1><h2 class="modal-profile-role"></h2><hr/><div class="modal-profile-background"></div></article></div>';
   }
 
 } // End DiversityFacultyDirectory class

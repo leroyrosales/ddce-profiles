@@ -13,9 +13,6 @@ profileImage.forEach((profile) => {
   profile.addEventListener("click", (e) => {
     e.preventDefault();
 
-    let currentNomID = "";
-    currentNomID = profile.getAttribute("data-anchor");
-
     // Modal name
     document.querySelector(
       "#facultyInfoModal .modal-profile-name"
@@ -27,6 +24,11 @@ profileImage.forEach((profile) => {
     ).textContent = profile.querySelector(
       ".ddce-faculty-profile-role"
     ).textContent;
+    document.querySelector(
+        "#facultyInfoModal .modal-profile-background"
+      ).innerHTML = profile.querySelector(
+        ".ddce-faculty-profile-background"
+      ).innerHTML;
 
     document.body.classList.add("modal-open");
     modal.classList.add("display-modal");

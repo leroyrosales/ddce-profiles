@@ -15,6 +15,10 @@ body.modal-open {
   transition: all 0.33s;
 }
 
+.ddce-faculty-profile-background {
+    display: none;
+}
+
 button.close {
   border: none;
   background-color: none;
