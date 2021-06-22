@@ -50,6 +50,7 @@ Class DiversityFacultyDirectory {
       'supports' => [
         'title',
         'thumbnail',
+        'editor',
         'custom-fields',
       ],
     ]);
