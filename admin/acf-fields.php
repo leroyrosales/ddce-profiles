@@ -4,7 +4,7 @@ if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if( !function_exists('acf_add_local_field_group') ) return;
 
-$faculty_profile_fields = [
+$ddce_profile_fields = [
     'key' => 'group_60d1dab288de5',
 	'title' => 'Profile Info',
 	'fields' => array(
@@ -52,7 +52,7 @@ $faculty_profile_fields = [
 			array(
 				'param' => 'post_type',
 				'operator' => '==',
-				'value' => 'ddce-faculty-profile',
+				'value' => 'ddce-profile',
 			),
 		),
 	),
@@ -71,4 +71,4 @@ $faculty_profile_fields = [
 	'acfe_note' => '',
 ];
 
-acf_add_local_field_group( $faculty_profile_fields );
+acf_add_local_field_group( $ddce_profile_fields );

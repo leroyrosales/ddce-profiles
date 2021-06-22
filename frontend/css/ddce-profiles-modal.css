@@ -2,7 +2,7 @@ body.modal-open {
   overflow: hidden;
 }
 
-#facultyInfoModal {
+#profileInfoModal {
   background-color: white;
   position: fixed;
   top: 0;
@@ -15,13 +15,21 @@ body.modal-open {
   transition: all 0.33s;
 }
 
-.ddce-faculty-profile-image img {
+.ddce-profile-image img {
     max-width: 250px;
     height: auto;
 }
 
-.ddce-faculty-profile-background {
+.ddce-profile-background {
     display: none;
+}
+
+.ddce-profile-container:focus {
+  outline: 2px solid #bf5700;
+}
+
+.ddce-profile-container:hover {
+  cursor: pointer;
 }
 
 button.close {

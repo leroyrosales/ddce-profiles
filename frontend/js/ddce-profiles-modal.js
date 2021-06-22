@@ -1,46 +1,59 @@
-const modal = document.getElementById("facultyInfoModal");
-let profileImage = document.querySelectorAll(".ddce-faculty-profile-container");
+const modal = document.getElementById("profileInfoModal");
+let profileImage = document.querySelectorAll(".ddce-profile-container");
 
 // empty fields function.
 function resetModalData() {
-  document.querySelector("#facultyInfoModal .modal-profile-name").textContent =
+  document.querySelector("#profileInfoModal .modal-profile-name").textContent =
     "";
-  document.querySelector("#facultyInfoModal .modal-profile-role").textContent =
+  document.querySelector("#profileInfoModal .modal-profile-role").textContent =
     "";
 }
+
+profileImage.forEach((profile) => {
+  profile.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      openModal(profile);
+    }
+  });
+});
 
 profileImage.forEach((profile) => {
   profile.addEventListener("click", (e) => {
     e.preventDefault();
 
+    openModal(profile);
+  });
+});
+
+function openModal(profile){
     // Modal name
     document.querySelector(
-      "#facultyInfoModal .modal-profile-name"
+      "#profileInfoModal .modal-profile-name"
     ).textContent = profile.querySelector(
-      ".ddce-faculty-profile-name"
+      ".ddce-profile-name"
     ).textContent;
     document.querySelector(
-      "#facultyInfoModal .modal-profile-role"
+      "#profileInfoModal .modal-profile-role"
     ).textContent = profile.querySelector(
-      ".ddce-faculty-profile-role"
+      ".ddce-profile-role"
     ).textContent;
     document.querySelector(
-        "#facultyInfoModal .modal-profile-background"
+        "#profileInfoModal .modal-profile-background"
       ).innerHTML = profile.querySelector(
-        ".ddce-faculty-profile-background"
+        ".ddce-profile-background"
       ).innerHTML;
 
     document.body.classList.add("modal-open");
     modal.classList.add("display-modal");
     modal.style.visibility = "visible";
     modal.style.opacity = "1";
-  });
-});
+}
 
 // Trigger the click event when you hit the escape key.
 document.addEventListener("keyup", (e) => {
   if (e.key === "Escape") {
-    // esc key
     document.querySelector(".modal-info .close").click();
   }
 });
