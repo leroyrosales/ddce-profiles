@@ -10,9 +10,24 @@ function resetModalData() {
 }
 
 profileImage.forEach((profile) => {
+  profile.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      openModal(profile);
+    }
+  });
+});
+
+profileImage.forEach((profile) => {
   profile.addEventListener("click", (e) => {
     e.preventDefault();
 
+    openModal(profile);
+  });
+});
+
+function openModal(profile){
     // Modal name
     document.querySelector(
       "#profileInfoModal .modal-profile-name"
@@ -34,13 +49,11 @@ profileImage.forEach((profile) => {
     modal.classList.add("display-modal");
     modal.style.visibility = "visible";
     modal.style.opacity = "1";
-  });
-});
+}
 
 // Trigger the click event when you hit the escape key.
 document.addEventListener("keyup", (e) => {
   if (e.key === "Escape") {
-    // esc key
     document.querySelector(".modal-info .close").click();
   }
 });

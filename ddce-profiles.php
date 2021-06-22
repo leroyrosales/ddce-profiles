@@ -86,7 +86,7 @@ Class DiversityProfilesDirectory {
       'post_type' => 'ddce-profile'
     ]);
 
-    return '<div class="ddce-profile-container"><div class="ddce-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3 class="ddce-profile-name">' . $profile[0]->post_title . '</h3><h4 class="ddce-profile-role">' . get_post_meta($profile[0]->ID, 'role', true) . '</h4><div class="ddce-profile-background">' . get_post_meta($profile[0]->ID, 'background', true) . '</div></div>';
+    return '<div class="ddce-profile-container" tabindex="0"><div class="ddce-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3 class="ddce-profile-name">' . $profile[0]->post_title . '</h3><h4 class="ddce-profile-role">' . get_post_meta($profile[0]->ID, 'role', true) . '</h4><div class="ddce-profile-background">' . get_post_meta($profile[0]->ID, 'background', true) . '</div></div>';
 
     return ob_get_clean();
   }
