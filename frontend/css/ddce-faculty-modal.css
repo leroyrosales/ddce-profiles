@@ -15,6 +15,11 @@ body.modal-open {
   transition: all 0.33s;
 }
 
+.ddce-faculty-profile-image img {
+    max-width: 250px;
+    height: auto;
+}
+
 .ddce-faculty-profile-background {
     display: none;
 }
@@ -39,7 +44,7 @@ button.close:hover {
 }
 
 .modal-info {
-  margin: 5% auto 0;
+  margin: 15% auto 0;
   padding-bottom: 2rem;
   max-width: 90vw;
   position: relative;
