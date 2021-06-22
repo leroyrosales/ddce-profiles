@@ -24,6 +24,14 @@ body.modal-open {
     display: none;
 }
 
+.ddce-profile-container:focus {
+  outline: 2px solid #bf5700;
+}
+
+.ddce-profile-container:hover {
+  cursor: pointer;
+}
+
 button.close {
   border: none;
   background-color: none;
