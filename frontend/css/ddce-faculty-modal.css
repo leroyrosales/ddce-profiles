@@ -1,0 +1,62 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+#facultyInfoModal {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 1111;
+  overflow-y: scroll;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.33s;
+}
+
+.ddce-faculty-profile-image img {
+    max-width: 250px;
+    height: auto;
+}
+
+.ddce-faculty-profile-background {
+    display: none;
+}
+
+button.close {
+  border: none;
+  background-color: none;
+  color: #9d4700;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+  opacity: 1;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+button.close:hover {
+  color: #fff;
+  background-color: #9d4700;
+}
+
+.modal-info {
+  margin: 15% auto 0;
+  padding-bottom: 2rem;
+  max-width: 90vw;
+  position: relative;
+}
+
+@media only screen and (min-width: 600px) {
+  .modal-info {
+    max-width: 70vw;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .modal-info {
+    max-width: 50vw;
+  }
+}
