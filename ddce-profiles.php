@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: DDCE Profiles
- * Version: 1.0
+ * Version: 2.0
  * Description: Creates a custom post type which allows a user to add a profile with a name, title, and short bio. Each profile opens a modal with bio info.
  * Plugin URI: https://github.austin.utexas.edu/ddce/ddce-profiles
  * Author: Division of Diversity and Community Engagement
