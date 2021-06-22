@@ -1,0 +1,16 @@
+body.modal-open {
+    overflow: hidden;
+  }
+
+#facultyInfoModal {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100vw;
+    z-index: 1111;
+    overflow-y: scroll;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .33s;
+}
