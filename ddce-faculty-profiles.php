@@ -8,9 +8,9 @@
  * Text Domain: ddce-faculty-profiles
  */
 
-if( !defined( 'ABSPATH' ) || !class_exists( 'DiversityFacultyProfiles') ) return;
+if( !defined( 'ABSPATH' ) || !class_exists( 'DiversityFacultyDirectory') ) return;
 
-Class DiversityFacultyProfiles {
+Class DiversityFacultyDirectory {
 
   private static $instance = null;
 
@@ -23,7 +23,7 @@ Class DiversityFacultyProfiles {
   public static function instance() {
     if( isset( self::$instance) ) return self::$instance;
 
-    return self::$instance = new DiversityFacultyProfiles();
+    return self::$instance = new DiversityFacultyDirectory();
   }
 
   public function initialize() {
@@ -57,6 +57,6 @@ Class DiversityFacultyProfiles {
 
   }
 
-} // End DiversityFacultyProfiles class
+} // End DiversityFacultyDirectory class
 
-DiversityFacultyProfiles::instance();
+DiversityFacultyDirectory::instance();
