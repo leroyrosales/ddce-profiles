@@ -15,6 +15,9 @@ Class DiversityFacultyDirectory {
   private static $instance = null;
 
   public function __construct() {
+    // Define path and URL to the ACF plugin.
+    define( 'DIVERSITYPROFILES_ACF_PATH', plugin_dir_path( __FILE__ ) . 'includes/acf/' );
+    define( 'DIVERSITYPROFILES_ACF_URL', plugin_dir_url( __FILE__ ) . 'includes/acf/' );
 
     add_action( 'init', [$this, 'initialize'], 0, 0 );
 
@@ -31,6 +34,8 @@ Class DiversityFacultyDirectory {
     if( !did_action( 'plugins_loaded' ) ) return;
 
     $this->register_profiles_cpt();
+
+    require_once( plugin_dir_path( __FILE__ ) . 'admin/acf-fields.php' );
 
   }
 
