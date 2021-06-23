@@ -21,7 +21,6 @@ Class DiversityProfilesDirectory {
 
     add_action( 'init', [$this, 'initialize'], 0, 0 );
     add_shortcode( 'ddce_profile', [$this, 'registers_ddce_profile_shortcode'] );
-    add_action('wp_footer', [$this, 'adds_modal_to_footer']);
 
   }
 
@@ -70,6 +69,8 @@ Class DiversityProfilesDirectory {
     wp_enqueue_style( 'ddce_profiles_modal_styles', plugin_dir_url( __FILE__ ) . 'frontend/css/ddce-profiles-modal.css' );
     add_action( 'wp_enqueue_scripts', 'ddce_profiles_modal_styles' );
 
+    add_action('wp_footer', [$this, 'adds_modal_to_footer']);
+
     ob_start();
 
     // Attributes
@@ -86,7 +87,7 @@ Class DiversityProfilesDirectory {
       'post_type' => 'ddce-profile'
     ]);
 
-    return '<div class="ddce-profile-container" tabindex="0"><div class="ddce-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3 class="ddce-profile-name">' . $profile[0]->post_title . '</h3><h4 class="ddce-profile-role">' . get_post_meta($profile[0]->ID, 'role', true) . '</h4><div class="ddce-profile-background">' . get_post_meta($profile[0]->ID, 'background', true) . '</div></div>';
+    return '<div class="ddce-profile-container" tabindex="0"><div class="ddce-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3 class="ddce-profile-name">' . $profile[0]->post_title . '</h3><h4 class="ddce-profile-role">' . get_post_meta($profile[0]->ID, 'role', true) . '</h4><div class="ddce-profile-background">' . wpautop( get_post_meta($profile[0]->ID, 'background', true) ) . '</div></div>';
 
     return ob_get_clean();
   }
