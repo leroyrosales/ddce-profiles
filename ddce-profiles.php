@@ -21,7 +21,6 @@ Class DiversityProfilesDirectory {
 
     add_action( 'init', [$this, 'initialize'], 0, 0 );
     add_shortcode( 'ddce_profile', [$this, 'registers_ddce_profile_shortcode'] );
-    add_action('wp_footer', [$this, 'adds_modal_to_footer']);
 
   }
 
@@ -69,6 +68,8 @@ Class DiversityProfilesDirectory {
 
     wp_enqueue_style( 'ddce_profiles_modal_styles', plugin_dir_url( __FILE__ ) . 'frontend/css/ddce-profiles-modal.css' );
     add_action( 'wp_enqueue_scripts', 'ddce_profiles_modal_styles' );
+
+    add_action('wp_footer', [$this, 'adds_modal_to_footer']);
 
     ob_start();
 
