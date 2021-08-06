@@ -18,6 +18,7 @@ body.modal-open {
 .ddce-profile-image img {
     max-width: 250px;
     height: auto;
+    width: 100%;
 }
 
 .ddce-profile-background {
