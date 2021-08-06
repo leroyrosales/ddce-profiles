@@ -71,8 +71,6 @@ Class DiversityProfilesDirectory {
 
     add_action('wp_footer', [$this, 'adds_modal_to_footer']);
 
-    ob_start();
-
     // Attributes
     $atts = shortcode_atts(
       array(
@@ -87,9 +85,15 @@ Class DiversityProfilesDirectory {
       'post_type' => 'ddce-profile'
     ]);
 
-    return '<div class="ddce-profile-container" tabindex="0"><div class="ddce-profile-image">' . get_the_post_thumbnail($profile[0]->ID) . '</div><h3 class="ddce-profile-name">' . $profile[0]->post_title . '</h3><h4 class="ddce-profile-role">' . get_post_meta($profile[0]->ID, 'role', true) . '</h4><div class="ddce-profile-background">' . wpautop( get_post_meta($profile[0]->ID, 'background', true) ) . '</div></div>';
+    ob_start(); ?>
 
-    return ob_get_clean();
+    <div class="ddce-profile-container" tabindex="0"><div class="ddce-profile-image"><?php echo get_the_post_thumbnail($profile[0]->ID) ?></div><h3 class="ddce-profile-name"><?php echo $profile[0]->post_title ?></h3><h4 class="ddce-profile-role"><?php echo get_post_meta($profile[0]->ID, 'role', true) ?></h4><div class="ddce-profile-background"><?php echo wpautop( get_post_meta($profile[0]->ID, 'background', true) ) ?></div></div>
+
+    <?php
+
+    $output = ob_get_contents();
+    ob_end_clean();
+    return $output;
   }
 
   public static function adds_modal_to_footer(){
