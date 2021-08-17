@@ -30,7 +30,7 @@ Class DiversityProfilesDirectory {
     return self::$instance = new DiversityProfilesDirectory();
   }
 
-  public static function initialize() {
+  public function initialize() {
     // Bail early if called directly from functions.php or plugin file.
     if( !did_action( 'plugins_loaded' ) ) return;
 
