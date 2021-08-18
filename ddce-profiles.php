@@ -61,7 +61,7 @@ Class DiversityProfilesDirectory {
   }
 
   // Add Shortcode
-  public static function registers_ddce_profile_shortcode( $atts ) {
+  public function registers_ddce_profile_shortcode( $atts ) {
 
     wp_enqueue_script( 'ddce_profiles_modal_js', plugin_dir_url( __FILE__ ) . 'frontend/js/ddce-profiles-modal.js', [], NULL, true );
     add_action( 'wp_enqueue_scripts', 'ddce_profiles_modal_js' );
